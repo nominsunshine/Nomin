@@ -38,17 +38,25 @@ class GCDCalculator:
     def relative_primes(self):
         # Check if two numbers are relative primes
         return self.calculate_gcd() == 1
+    def calculate_lcm(self):
+        # Calculate the LCM using the GCD
+        gcd = self.calculate_gcd()
+        return abs(self.a * self.b) // gcd  # Use absolute value and integer division
+
 
     def run(self):
         # Main program workflow
         self.get_inputs()  # Get numbers
         if self.validate_numbers():  # Check if inputs are valid
             gcd = self.calculate_gcd()  # Calculate GCD
+            lcm = self.calculate_lcm()  # Calculate LCM
             if self.relative_primes():  # Check if the numbers are relative primes
                 print(f"{self.a} and {self.b} are relative prime numbers.")
             print(f"The GCD of {self.a} and {self.b} is {gcd}.")
+            print(f"The LCM of {self.a} and {self.b} is {lcm}.")
         else:
             print("Invalid input. Please restart the program.")  # Handle invalid input
+
 
 
 # Run the program
